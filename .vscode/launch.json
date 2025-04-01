@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DempApplication<demp>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.psc.demp.DempApplication",
+            "projectName": "demp",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Spring03Application<spring03>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.psc.spring03.Spring03Application",
+            "projectName": "spring03",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
