@@ -12,7 +12,7 @@ public class Spring02Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Spring02Application.class, args);
 
-		Scanner scan = new Scanner(System.in);
+		Scanner 0609 = new Scanner(System.in);
 
 		System.out.print(">> 아이디 입력 : ");
 		String userid = scan.next();
