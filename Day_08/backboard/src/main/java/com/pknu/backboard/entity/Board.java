@@ -13,7 +13,19 @@ import lombok.Setter;
 @Getter
 @Setter // 롬복으로 Getter/Setter 자동화
 @Entity // JPA 테이블 매핑 선언
+// @AllArgsConstructor
 public class Board {
+
+    // 아래에 있는게 @AllArgsConstructor가 만들어주는 애들. 동일한 내용이라 둘 중 하나만 사용해야함
+    // public Board(Long bno, String title, String content, LocalDateTime
+    // createDate, LocalDateTime modifyDate,
+    // List<Reply> replyList) {
+    // this.bno = bno;
+    // this.title = title;
+    // this.content = content;
+    // this.createDate = createDate;
+    // this.modifyDate = modifyDate;
+    // this.replyList = replyList;
 
     @Id // PK
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

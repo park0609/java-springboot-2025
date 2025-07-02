@@ -1,17 +1,22 @@
 package com.pknu.backboard.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 import com.pknu.backboard.entity.Board;
 import com.pknu.backboard.repository.BoardRepository;
+
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-
 public class BoardService {
 
     @Autowired
@@ -22,6 +27,13 @@ public class BoardService {
         return this.boardRepository.findAll(); // select
     }
 
+    // 페이징용 게시판 조회메서드
+    public Page<Board> getBoardList(int page) {
+        Pageable pageable = PageRequest.of(page, 10);
+
+        return this.boardRepository.findAll(pageable);
+    }
+
     // SELECT * FROM BOARD WHERE bno = ?
     public Board getBoardOne(Long bno) {
         Optional<Board> opBoard = this.boardRepository.findById(bno);
@@ -30,5 +42,14 @@ public class BoardService {
         } else {
             throw new RuntimeException("board not found");
         }
+    }
+
+    public void setBoardOne(String title, String content) {
+        Board board = new Board();
+        board.setTitle(title); // 파라미터로 넘어온 변수를 파라미터로 입력
+        board.setContent(content);
+        board.setCreateDate(LocalDateTime.now());
+
+        this.boardRepository.save(board);
     }
 }
